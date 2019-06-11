@@ -13,3 +13,25 @@ gecko:
      - lower_left_bar_1_joint
      - lower_right_bar_1_joint
     pid: {p: 100.0, i: 0.01, d: 10.0}
+    
+  /gazebo_ros_control:
+    pid_gains:
+        upper_left_bar_1_joint:
+            p: 100.0
+            i: 0.01
+            d: 10.0
+
+        upper_right_bar_1_joint:
+            p: 100.0
+            i: 0.01
+            d: 10.0
+         
+        lower_left_bar_1_joint:
+            p: 100.0
+            i: 0.01
+            d: 10.0
+            
+        lower_right_bar_1_joint:
+            p: 100.0
+            i: 0.01
+            d: 10.0

@@ -33,4 +33,8 @@ list(APPEND CMAKE_CXX_FLAGS "${GAZEBO_CXX_FLAGS}")
 find_package(gazebo REQUIRED)
 
 
+add_executable(gecko_movement src/gecko_movement.cpp)
+target_link_libraries(gecko_movement ${catkin_LIBRARIES})
+add_dependencies(gecko_movement gecko_control_gencpp)
+
 

@@ -15,7 +15,7 @@
   
   <!--////////////////////////// properties ////////////////////////////////////////////////-->
   
-  <xacro:property name="mass" value="1" />
+  <xacro:property name="mass" value="10" />
   
   
   <!--////////////////////////// macros ////////////////////////////////////////////////-->
@@ -354,10 +354,10 @@
 <transmission name="tran_upper_left_bar_1_joint">
     <type>transmission_interface/SimpleTransmission</type>
     <joint name="upper_left_bar_1_joint">
-      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
     </joint>
     <actuator name="motor_upper_left_bar_1_joint">
-      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission> 
@@ -365,10 +365,10 @@
   <transmission name="tran_upper_right_bar_1_joint">
     <type>transmission_interface/SimpleTransmission</type>
     <joint name="upper_right_bar_1_joint">
-      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
     </joint>
     <actuator name="motor_upper_right_bar_1_joint">
-      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission> 
@@ -376,10 +376,10 @@
   <transmission name="tran_lower_left_bar_1_joint">
     <type>transmission_interface/SimpleTransmission</type>
     <joint name="lower_left_bar_1_joint">
-      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
     </joint>
     <actuator name="motor_lower_left_bar_1_joint">
-      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission> 
@@ -387,13 +387,16 @@
   <transmission name="tran_lower_right_bar_1_joint">
     <type>transmission_interface/SimpleTransmission</type>
     <joint name="lower_right_bar_1_joint">
-      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
     </joint>
     <actuator name="motor_lower_right_bar_1_joint">
-      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>  
+  
+
+
   
   
   

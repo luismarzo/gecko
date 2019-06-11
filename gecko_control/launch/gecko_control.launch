@@ -4,8 +4,8 @@
   <param name="robot_description"   command="$(find xacro)/xacro.py '$(find gecko_description)/urdf/gecko.xacro'" />
    
    <!--group ns="$(arg ns)"-->
-  <rosparam file="$(find gecko_control)/config/gecko_control.yaml" command="load" />
-  <!--rosparam file="$(find gecko_control)/config/gecko_group_control.yaml" command="load" /-->
+  <!--rosparam file="$(find gecko_control)/config/gecko_control.yaml" command="load" /-->
+  <rosparam file="$(find gecko_control)/config/gecko_group_control.yaml" command="load" />
 
   <!-- load the controllers -->
 
@@ -13,7 +13,8 @@
    <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
 	output="log"  args="--namespace=$(arg ns)
             joint_state_controller
-            upper_left_bar_1_joint_position_controller"/>
+            gecko_group_position_controller
+            gazebo_ros_control"/>
 
   <!-- convert joint states to TF transforms for rviz, etc -->
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"
