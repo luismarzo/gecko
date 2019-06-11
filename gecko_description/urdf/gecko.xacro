@@ -1,0 +1,402 @@
+<?xml version="1.0"?>
+<robot name="gecko" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+
+  <xacro:include filename="$(find gecko_description)/urdf/materials.xacro" />
+  
+    <!--////////////////////////// plugins ////////////////////////////////////////////////-->
+  
+    <gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+      <robotNamespace>/gecko</robotNamespace>
+      <legacyModeNS>true</legacyModeNS>
+    </plugin>
+  </gazebo>
+  
+  <!--////////////////////////// properties ////////////////////////////////////////////////-->
+  
+  <xacro:property name="mass" value="1" />
+  
+  
+  <!--////////////////////////// macros ////////////////////////////////////////////////-->
+  
+  
+
+    <xacro:macro name="default_inertial">
+        <inertial>
+                <mass value="${mass}" />
+                <inertia ixx="1.0" ixy="0.0" ixz="0.0"
+                     iyy="1.0" iyz="0.0"
+                     izz="1.0" />
+        </inertial>
+    </xacro:macro>
+
+  <!--////////////////////////// left upper links ////////////////////////////////////////////////-->
+  
+  
+  
+  <link name="base_link">
+  </link>
+  
+ <link name="left_leg">
+    <visual>
+      <geometry>
+        <box size="0.05 1.4 0.05"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <material name="white"/>
+    </visual>
+    <collision>
+    <geometry>
+        <box size="0.05 1.4 0.05"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <material name="red"/>
+      </collision>
+    <xacro:default_inertial />
+  </link>
+  
+  <joint name="left_leg_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="left_leg"/>
+    <origin xyz="0.55 0 0"/>
+    </joint>
+    
+  <link name="upper_left_bar_1">
+    <visual>
+      <geometry>
+        <box size="0.1 0.05 0.05"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="-0.077 0 0"/>
+      <material name="white"/>
+    </visual>
+    <collision>
+    <geometry>
+       <box size="0.1 0.05 0.05"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="-0.077 0 0"/>
+      <material name="red"/>
+          </collision>
+    <xacro:default_inertial />
+  </link>
+  
+  <joint name="upper_left_bar_1_joint" type="continuous">
+    <parent link="left_leg"/>
+    <child link="upper_left_bar_1"/>
+    <axis xyz="1 0 0"/>
+    <origin xyz="0 -0.675 0"/>
+  </joint>
+  
+  <link name="upper_left_bar_2">
+    <visual>
+      <geometry>
+        <box size="0.05 0.2 0.05"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0.075 0"/>
+      <material name="white"/>
+    </visual>
+    <collision>
+     <geometry>
+      <box size="0.05 0.2 0.05"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0.075 0"/>
+      <material name="red"/>
+      </collision>
+    <xacro:default_inertial />
+  </link>
+  
+  <joint name="upper_left_bar_2_joint" type="fixed">
+    <parent link="upper_left_bar_1"/>
+    <child link="upper_left_bar_2"/>
+    <origin xyz="-0.16 0 0"/>
+  </joint>
+  
+  
+    <!--////////////////////////// right upper links ////////////////////////////////////////////////-->
+  
+   <link name="right_leg">
+    <visual>
+      <geometry>
+        <box size="0.05 1.4 0.05"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <material name="white"/>
+    </visual>
+    <collision>
+    <geometry>
+        <box size="0.05 1.4 0.05"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <material name="red"/>
+      </collision>
+    <xacro:default_inertial />
+  </link>
+  
+  <joint name="right_leg_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="right_leg"/>
+    <origin xyz="-0.55 0 0"/>
+    </joint>
+    
+  <link name="upper_right_bar_1">
+    <visual>
+      <geometry>
+        <box size="0.1 0.05 0.05"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0.077 0 0"/>
+      <material name="white"/>
+    </visual>
+    <collision>
+    <geometry>
+       <box size="0.1 0.05 0.05"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0.077 0 0"/>
+      <material name="red"/>
+          </collision>
+    <xacro:default_inertial />
+  </link>
+  
+  <joint name="upper_right_bar_1_joint" type="continuous">
+    <parent link="right_leg"/>
+    <child link="upper_right_bar_1"/>
+    <axis xyz="1 0 0"/>
+    <origin xyz="0 -0.675 0"/>
+  </joint>
+  
+  <link name="upper_right_bar_2">
+    <visual>
+      <geometry>
+        <box size="0.05 0.2 0.05"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0.075 0"/>
+      <material name="white"/>
+    </visual>
+    <collision>
+     <geometry>
+      <box size="0.05 0.2 0.05"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0.075 0"/>
+      <material name="red"/>
+      </collision>
+    <xacro:default_inertial />
+  </link>
+  
+  <joint name="upper_right_bar_2_joint" type="fixed">
+    <parent link="upper_right_bar_1"/>
+    <child link="upper_right_bar_2"/>
+    <origin xyz="0.16 0 0"/>
+  </joint>
+  
+  
+ <!--////////////////////////// left lower links ////////////////////////////////////////////////-->
+  
+ 
+    
+  <link name="lower_left_bar_1">
+    <visual>
+      <geometry>
+        <box size="0.1 0.05 0.05"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="-0.077 0 0"/>
+      <material name="white"/>
+    </visual>
+    <collision>
+    <geometry>
+       <box size="0.1 0.05 0.05"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="-0.077 0 0"/>
+      <material name="red"/>
+          </collision>
+    <xacro:default_inertial />
+  </link>
+  
+  <joint name="lower_left_bar_1_joint" type="continuous">
+    <parent link="left_leg"/>
+    <child link="lower_left_bar_1"/>
+    <axis xyz="1 0 0"/>
+    <origin xyz="0 0.675 0"/>
+  </joint>
+  
+  <link name="lower_left_bar_2">
+    <visual>
+      <geometry>
+        <box size="0.05 0.2 0.05"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0.075 0"/>
+      <material name="white"/>
+    </visual>
+    <collision>
+     <geometry>
+      <box size="0.05 0.2 0.05"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0.075 0"/>
+      <material name="red"/>
+      </collision>
+    <xacro:default_inertial />
+  </link>
+  
+  <joint name="lower_left_bar_2_joint" type="fixed">
+    <parent link="lower_left_bar_1"/>
+    <child link="lower_left_bar_2"/>
+    <origin xyz="-0.16 0 0"/>
+  </joint> 
+  
+  
+    <!--////////////////////////// right lower links ////////////////////////////////////////////////-->
+  
+   
+    
+  <link name="lower_right_bar_1">
+    <visual>
+      <geometry>
+        <box size="0.1 0.05 0.05"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0.077 0 0"/>
+      <material name="white"/>
+    </visual>
+    <collision>
+    <geometry>
+       <box size="0.1 0.05 0.05"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0.077 0 0"/>
+      <material name="red"/>
+          </collision>
+    <xacro:default_inertial />
+  </link>
+  
+  <joint name="lower_right_bar_1_joint" type="continuous">
+    <parent link="right_leg"/>
+    <child link="lower_right_bar_1"/>
+    <axis xyz="1 0 0"/>
+    <origin xyz="0 0.675 0"/>
+  </joint>
+  
+  <link name="lower_right_bar_2">
+    <visual>
+      <geometry>
+        <box size="0.05 0.2 0.05"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0.075 0"/>
+      <material name="white"/>
+    </visual>
+    <collision>
+     <geometry>
+      <box size="0.05 0.2 0.05"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0.075 0"/>
+      <material name="red"/>
+      </collision>
+    <xacro:default_inertial />
+  </link>
+  
+  <joint name="lower_right_bar_2_joint" type="fixed">
+    <parent link="lower_right_bar_1"/>
+    <child link="lower_right_bar_2"/>
+    <origin xyz="0.16 0 0"/>
+  </joint>  
+  
+<!-- /////////////// upper and lower fixed bars ///////////////////////////////////////-->  
+
+   <link name="upper_bar">
+    <visual>
+      <geometry>
+        <box size="0.725 0.05 0.05"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="-0.39 0 0"/>
+      <material name="white"/>
+    </visual>
+    <collision>
+    <geometry>
+        <box size="0.725 0.05 0.05"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="-0.39 0 0"/>
+      <material name="red"/>
+      </collision>
+    <xacro:default_inertial />
+  </link>
+  
+  <joint name="upper_bar_joint" type="fixed">
+    <parent link="upper_left_bar_2"/>
+    <child link="upper_bar"/>
+    <origin xyz="0 0.15 0"/>
+    </joint>
+    
+    
+    <link name="lower_bar">
+    <visual>
+      <geometry>
+        <box size="0.725 0.05 0.05"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="-0.39 0 0"/>
+      <material name="white"/>
+    </visual>
+    <collision>
+    <geometry>
+        <box size="0.725 0.05 0.05"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="-0.39 0 0"/>
+      <material name="red"/>
+      </collision>
+    <xacro:default_inertial />
+  </link>
+  
+  <joint name="lower_bar_joint" type="fixed">
+    <parent link="lower_left_bar_2"/>
+    <child link="lower_bar"/>
+    <origin xyz="0 0.15 0"/>
+    </joint>   
+    
+
+
+  
+<!-- /////////////// transmissions ///////////////////////////////////////-->
+
+<transmission name="tran_upper_left_bar_1_joint">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="upper_left_bar_1_joint">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor_upper_left_bar_1_joint">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission> 
+  
+  <transmission name="tran_upper_right_bar_1_joint">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="upper_right_bar_1_joint">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor_upper_right_bar_1_joint">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission> 
+  
+  <transmission name="tran_lower_left_bar_1_joint">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="lower_left_bar_1_joint">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor_lower_left_bar_1_joint">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission> 
+  
+  <transmission name="tran_lower_right_bar_1_joint">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="lower_right_bar_1_joint">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor_lower_right_bar_1_joint">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>  
+  
+  
+  
+  
+  
+</robot>
