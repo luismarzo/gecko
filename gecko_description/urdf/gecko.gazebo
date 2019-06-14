@@ -6,8 +6,8 @@
 
 
    <gazebo reference="upper_left_cylinder">
-    <mu1>0.2</mu1>
-    <mu2>0.2</mu2>
+    <mu1>5</mu1>
+    <mu2>5</mu2>
     <dampingFactor>0.05</dampingFactor>
     <material>Gazebo/Black</material>
     <selfCollide>1</selfCollide>
@@ -15,8 +15,8 @@
   </gazebo>
   
      <gazebo reference="upper_right_cylinder">
-    <mu1>0.2</mu1>
-    <mu2>0.2</mu2>
+    <mu1>5</mu1>
+    <mu2>5</mu2>
     <dampingFactor>0.05</dampingFactor>
     <material>Gazebo/Black</material>
     <selfCollide>1</selfCollide>
@@ -24,8 +24,8 @@
   </gazebo>
   
      <gazebo reference="upper_left_inside_cylinder">
-    <mu1>0.2</mu1>
-    <mu2>0.2</mu2>
+    <mu1>5</mu1>
+    <mu2>5</mu2>
     <dampingFactor>0.05</dampingFactor>
     <material>Gazebo/Black</material>
     <selfCollide>1</selfCollide>
@@ -33,8 +33,8 @@
   </gazebo>
   
      <gazebo reference="upper_right_inside_cylinder">
-    <mu1>0.2</mu1>
-    <mu2>0.2</mu2>
+    <mu1>5</mu1>
+    <mu2>5</mu2>
     <dampingFactor>0.05</dampingFactor>
     <material>Gazebo/Black</material>
     <selfCollide>1</selfCollide>
@@ -43,8 +43,8 @@
   
   
      <gazebo reference="lower_left_cylinder">
-    <mu1>0.2</mu1>
-    <mu2>0.2</mu2>
+    <mu1>5</mu1>
+    <mu2>5</mu2>
     <dampingFactor>0.05</dampingFactor>
     <material>Gazebo/Black</material>
     <selfCollide>1</selfCollide>
@@ -52,8 +52,8 @@
   </gazebo>
   
      <gazebo reference="lower_right_cylinder">
-    <mu1>0.2</mu1>
-    <mu2>0.2</mu2>
+    <mu1>5</mu1>
+    <mu2>5</mu2>
     <dampingFactor>0.05</dampingFactor>
     <material>Gazebo/Black</material>
     <selfCollide>1</selfCollide>
@@ -61,8 +61,8 @@
   </gazebo>
   
      <gazebo reference="lower_left_inside_cylinder">
-    <mu1>0.2</mu1>
-    <mu2>0.2</mu2>
+    <mu1>5</mu1>
+    <mu2>5</mu2>
     <dampingFactor>0.05</dampingFactor>
     <material>Gazebo/Black</material>
     <selfCollide>1</selfCollide>
@@ -70,8 +70,8 @@
   </gazebo>
   
      <gazebo reference="lower_right_inside_cylinder">
-    <mu1>0.2</mu1>
-    <mu2>0.2</mu2>
+    <mu1>5</mu1>
+    <mu2>5</mu2>
     <dampingFactor>0.05</dampingFactor>
     <material>Gazebo/Black</material>
     <selfCollide>1</selfCollide>
