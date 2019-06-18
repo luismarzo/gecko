@@ -4,6 +4,22 @@
 
   <xacro:include filename="$(find gecko_description)/urdf/materials.xacro" />
   <xacro:include filename="$(find gecko_description)/urdf/gecko.gazebo" />
+  <xacro:include filename="$(find gecko_description)/urdf/camera.xacro" />
+  <xacro:include filename="$(find gecko_description)/urdf/laser.xacro" />
+  <xacro:include filename="$(find gecko_description)/urdf/flashlight.urdf.xacro" />
+  
+    <xacro:flashlight flashlight_prefix="main" parent_link="base_link">
+    <pose>0.3 0 0.1 0 ${3.14159/2} 0</pose>
+    <plugin_params>
+      <block>
+    <duration>0.5</duration>
+    <interval>0.5</interval>
+    <color>1 0 0</color>
+  </block>
+    
+    </plugin_params>
+  </xacro:flashlight>
+
   
     <!--////////////////////////// plugins ////////////////////////////////////////////////-->
   
