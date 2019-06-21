@@ -5,6 +5,8 @@
        <!--////////////////////////// links ////////////////////////////////////////////////-->
 
   <!-- Hokuyo Laser -->
+  
+  
   <link name="hokuyo_link">
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -21,18 +23,57 @@
     </visual>
 
     <inertial>
-      <mass value="1e-5" />
+      <mass value="1" />
       <origin xyz="0 0 0" rpy="0 0 0"/>
-      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+      <inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1" />
     </inertial>
   </link>
   
-   <joint name="hokuyo_joint" type="fixed">
+   <joint name="hokuyo_joint" type="prismatic">
     <axis xyz="0 1 0" />
-    <origin xyz="0 0.4 0.2" rpy="0 1.3 ${-pi/2}"/>
-    <parent link="base_link"/>
+    <origin xyz="0 0 0" rpy="0 1.3 ${-pi/2}"/>
+    <parent link="horizontal_traslation_link"/>
     <child link="hokuyo_link"/>
+    <limit effort="10.0" lower="-0.2" upper="0.2" velocity="0.5"/>
   </joint>
+  
+  
+  <link name="horizontal_traslation_link">
+  
+      <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+	<geometry>
+    <box size="0.01 0.01 0.01"/>
+      </geometry>
+    </visual>
+    
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+    <box size="0 0 0"/>
+      </geometry>
+    </collision>
+
+
+    <inertial>
+      <mass value="0.5" />
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+                <inertia ixx="1.0" ixy="0.0" ixz="0.0"
+                     iyy="1.0" iyz="0.0"
+                     izz="1.0" />
+
+    </inertial>
+  </link>
+  
+   <joint name="horizontal_traslation_link_joint" type="prismatic">
+    <axis xyz="0 1 0" />
+    <origin xyz="0 0.4 0.2" rpy="0 0 0"/>
+    <parent link="base_link"/>
+    <child link="horizontal_traslation_link"/>
+    <limit effort="1000" lower="-0.66" upper="0.08" velocity="0.5"/>
+  </joint>
+  
+  
   
    <!-- hokuyo -->
   <gazebo reference="hokuyo_link">
@@ -56,10 +97,7 @@
         </range>
         <noise>
           <type>gaussian</type>
-          <!-- Noise parameters based on published spec for Hokuyo laser
-               achieving "+-30mm" accuracy at range < 10m.  A mean of 0.0m and
-               stddev of 0.01m will put 99.7% of samples within 0.03m of the true
-               reading. -->
+
           <mean>0.0</mean>
           <stddev>0.01</stddev>
         </noise>

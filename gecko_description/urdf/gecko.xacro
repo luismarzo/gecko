@@ -399,7 +399,7 @@
     <origin xyz="0 0.15 0"/>
     </joint>   
     
-    <!-- /////////////// 4+4 tires ///////////////////////////////////////-->
+    <!-- /////////////// 4x4 tires ///////////////////////////////////////-->
     
 <link name="upper_left_cylinder">
     <xacro:tire/>   
@@ -491,6 +491,107 @@
     <origin xyz="-0.6 0 0"/>
     </joint>
 
+<!--////////////////////////// fixed bar ////////////////////////////////////////////////-->
+
+ <link name="left_inside_leg">
+    <visual>
+      <geometry>
+        <box size="0.03 1 0.03"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <material name="white"/>
+    </visual>
+    <collision>
+    <geometry>
+        <box size="0.03 1 0.03"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <material name="red"/>
+      </collision>
+    <xacro:default_low_inertial />
+  </link>
+  
+  <joint name="left_inside_leg_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="left_inside_leg"/>
+    <origin xyz="0.24 0.05 0.2"/>
+    </joint>
+    
+     <link name="right_inside_leg">
+    <visual>
+      <geometry>
+        <box size="0.03 1 0.03"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <material name="white"/>
+    </visual>
+    <collision>
+    <geometry>
+        <box size="0.03 1 0.03"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <material name="red"/>
+      </collision>
+    <xacro:default_low_inertial />
+  </link>
+  
+  <joint name="right_inside_leg_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="right_inside_leg"/>
+    <origin xyz="-0.24 0.05 0.2"/>
+    </joint>
+
+    
+<link name="upper_inside_leg">
+    <visual>
+      <geometry>
+        <box size="0.445 0.03 0.03"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <material name="white"/>
+    </visual>
+    <collision>
+    <geometry>
+       <box size="0.445 0.03 0.03"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <material name="red"/>
+          </collision>
+    <xacro:default_low_inertial />
+  </link>
+  
+  <joint name="upper_inside_leg_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="upper_inside_leg"/>
+    <axis xyz="1 0 0"/>
+    <origin xyz="0 -0.435 0.2"/>
+  </joint>
+  
+  <link name="lower_inside_leg">
+    <visual>
+      <geometry>
+        <box size="0.445 0.03 0.03"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <material name="white"/>
+    </visual>
+    <collision>
+    <geometry>
+       <box size="0.445 0.03 0.03"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <material name="red"/>
+          </collision>
+    <xacro:default_low_inertial />
+  </link>
+  
+  <joint name="lower_inside_leg_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="lower_inside_leg"/>
+    <axis xyz="1 0 0"/>
+    <origin xyz="0 0.538 0.2"/>
+  </joint>
+  
   
 <!-- /////////////// transmissions ///////////////////////////////////////-->
 
@@ -538,7 +639,27 @@
     </actuator>
   </transmission>  
   
-
+  <transmission name="tran_horizontal_traslation_link_joint">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="horizontal_traslation_link_joint">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor_horizontal_traslation_link_joint">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  
+   <transmission name="tran_hokuyo_joint">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="hokuyo_joint">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor_hokuyo_joint">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
 
   
   

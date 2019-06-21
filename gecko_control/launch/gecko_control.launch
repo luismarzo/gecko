@@ -14,6 +14,7 @@
 	output="log"  args="--namespace=$(arg ns)
             joint_state_controller
             gecko_group_position_controller
+            camera_position_controller
             gazebo_ros_control"/>
 
   <!-- convert joint states to TF transforms for rviz, etc -->

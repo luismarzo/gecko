@@ -77,6 +77,24 @@
     <selfCollide>1</selfCollide>
     <static>0</static>
   </gazebo>
+  
+  <gazebo reference="horizontal_traslation_link">
+    <mu1>5</mu1>
+    <mu2>5</mu2>
+    <dampingFactor>0.05</dampingFactor>
+    <material>Gazebo/Green</material>
+    <selfCollide>1</selfCollide>
+    <static>0</static>
+  </gazebo>
+  
+    <gazebo reference="hokuyo_link">
+    <mu1>5</mu1>
+    <mu2>5</mu2>
+    <dampingFactor>0.05</dampingFactor>
+    <selfCollide>1</selfCollide>
+    <static>0</static>
+  </gazebo>
+  
 
   
   
